@@ -120,26 +120,24 @@
     getObjectCenter(obj, axis) {
       let position = 'left';
       let dimension = 'width';
-      let origin = 'originX';
+      let origin = 'X';
 
       if (axis == 'vertical') {
         position = 'top';
         dimension = 'height';
-        origin = 'originY';
+        origin = 'Y';
       }
 
-
-      if (obj[origin] == 'center') {
+      if (obj['origin' + origin] == 'center') {
         return obj[position];
       }
-
       // origin top or left.
-      if (obj[origin] == position) {
-        return obj[position] + (obj[dimension] / 2);
+      if (obj['origin' + origin] == position) {
+        return obj[position] + (obj[dimension] * obj['scale' + origin] / 2);
       }
 
       // origin bottom or right.
-      return obj[position] - (obj[dimension] / 2);
+      return obj[position] - (obj[dimension] * obj['scale' + origin] / 2);
     }
 
     /**
@@ -155,25 +153,25 @@
     calculateObjectCenter(obj, axis, desiredValue) {
       let position = 'left';
       let dimension = 'width';
-      let origin = 'originX';
+      let origin = 'X';
 
       if (axis == 'vertical') {
         position = 'top';
         dimension = 'height';
-        origin = 'originY';
+        origin = 'Y';
       }
 
-      if (obj[origin] == 'center') {
+      if (obj['origin' + origin] == 'center') {
         return desiredValue;
       }
 
       // origin top or left.
-      if (obj[origin] == position) {
-        return desiredValue - (obj[dimension] / 2);
+      if (obj['origin' + origin] == position) {
+        return desiredValue - (obj[dimension] * obj['scale' + origin] / 2);
       }
 
       // origin bottom or right.
-      return desiredValue + (obj[dimension] / 2);
+      return desiredValue + (obj[dimension] * obj['scale' + origin] / 2);
     }
 
     /**
