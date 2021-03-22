@@ -6,11 +6,11 @@
     /**
      * Constructor for the fabricSnapper class.
      * Prepares an instance of fabricSnapper class.
-     * 
-     * @param {fabric.Canvas} canvas 
+     *
+     * @param {fabric.Canvas} canvas
      *   FabricJS canvas object.
-     * 
-     * @param {obj} settings 
+     *
+     * @param {obj} settings
      *   Simple object representing fabric.Line settings.
      */
     constructor(canvas, settings = {}) {
@@ -22,6 +22,7 @@
         evented: false,
         originX: 'center',
         originY: 'center',
+        isAxis: true,
       };
       this.XAxis = null;
       this.YAxis = null;
@@ -112,9 +113,9 @@
     /**
      * This method helps to determine the object center depending on object's origin.
      * It is very helpful if you have objcts with different origin points.
-     * 
-     * @param {Fabric.object} obj 
-     * @param {string} axis 
+     *
+     * @param {Fabric.object} obj
+     * @param {string} axis
      *  'horizontal' or 'vertical'
      */
     getObjectCenter(obj, axis) {
@@ -143,12 +144,12 @@
     /**
      * This method helps to calculate the future object center depending on object's origin.
      * It is very helpful if you have objcts with different origin points.
-     * 
-     * @param {Fabric.object} obj 
-     * @param {string} axis 
+     *
+     * @param {Fabric.object} obj
+     * @param {string} axis
      *  'horizontal' or 'vertical'
      * @param {number} desiredValue
-     *  Desired value for the center. 
+     *  Desired value for the center.
      */
     calculateObjectCenter(obj, axis, desiredValue) {
       let position = 'left';
@@ -176,8 +177,8 @@
 
     /**
      * Shows X axis on the canvas
-     * 
-     * @param {number} pos 
+     *
+     * @param {number} pos
      *   X coordinate of an X axis.
      */
     showXAxis(pos) {
@@ -199,8 +200,8 @@
 
     /**
      * Shows Y axis on the canvas
-     * 
-     * @param {number} pos 
+     *
+     * @param {number} pos
      *   Y coordinate of an Y axis.
      */
     showYAxis(pos) {
